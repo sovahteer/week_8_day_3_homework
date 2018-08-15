@@ -1,6 +1,8 @@
 package models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "students")
@@ -11,12 +13,14 @@ public class Student {
     private int age;
     private int enrolmentNumber;
     private Course course;
+    private List<Lesson> lessons;
 
     public Student(String name, int age, int enrolmentNumber, Course course) {
         this.name = name;
         this.age = age;
         this.enrolmentNumber = enrolmentNumber;
         this.course = course;
+        this.lessons = new ArrayList<Lesson>();
     }
 
     @Id
@@ -62,5 +66,18 @@ public class Student {
 
     public void setCourse(Course course) {
         this.course = course;
+    }
+
+    public List<Lesson> getLessons(){
+        return lessons;
+    }
+
+    public void setLessons(List<Lesson> lessons){
+        this.lessons = lessons;
+    }
+
+
+    public void addLesson(Lesson lesson){
+        this.lessons.add(lesson);
     }
 }

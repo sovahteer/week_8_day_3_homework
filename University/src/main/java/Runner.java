@@ -1,8 +1,12 @@
 import db.DBHelper;
+import db.DBLessons;
+import db.DBStudent;
 import models.Course;
 import models.Lesson;
 import models.Mentor;
 import models.Student;
+
+import java.util.List;
 
 public class Runner {
 
@@ -23,6 +27,13 @@ public class Runner {
 
         Mentor mentor1 = new Mentor("Harold");
         DBHelper.save(mentor1);
+
+        DBStudent.addStudentToLesson(student1, dbs);
+        DBStudent.addStudentToLesson(student2, dbs);
+
+        List<Student> students = DBLessons.getStudentsForLesson(dbs);
+
+
 
 
     }
