@@ -5,19 +5,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-public class Course {
+public class Lesson {
 
     private int id;
     private String title;
-    private String level;
+    private String classroomNumber;
 
-    public Course(String title, String level) {
+    public Lesson(String title, String classroomNumber) {
         this.title = title;
-        this.level = level;
+        this.classroomNumber = classroomNumber;
     }
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue( strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     public int getId() {
         return id;
@@ -26,7 +25,6 @@ public class Course {
     public void setId(int id) {
         this.id = id;
     }
-
     @Column(name = "title")
     public String getTitle() {
         return title;
@@ -35,12 +33,12 @@ public class Course {
     public void setTitle(String title) {
         this.title = title;
     }
-    @Column(name = "level")
-    public String getLevel() {
-        return level;
+    @Column(name = "classroom_number")
+    public String getClassroomNumber() {
+        return classroomNumber;
     }
 
-    public void setLevel(String level) {
-        this.level = level;
+    public void setClassroomNumber(String classroomNumber) {
+        this.classroomNumber = classroomNumber;
     }
 }
