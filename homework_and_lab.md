@@ -20,8 +20,4 @@ Add `Instructors` to the lessons.
 
 - An `Instructor` can teach many `Lesson`s and each `Lesson` will have one `Instructor`.
 
-
-## Advanced extension
-
-- Add a start and end date to the `Course`
-- Add anything else you can think of!
+## There was an Advanced Extension here, its gone now...
