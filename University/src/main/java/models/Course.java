@@ -1,15 +1,17 @@
 package models;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "courses")
 public class Course {
 
     private int id;
     private String title;
     private String level;
+
+    public Course(){
+    }
 
     public Course(String title, String level) {
         this.title = title;
