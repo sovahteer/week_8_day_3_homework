@@ -16,8 +16,10 @@ public class Runner {
         Student student2 = new Student("Jimbob McGraw", 50, 5678, imd);
         DBHelper.save(student2);
 
-        Lesson dbs = new Lesson("Databases", "D-23");
+        Lesson dbs = new Lesson("Databases", "D-23", imd);
         DBHelper.save(dbs);
+        Lesson interfaces = new Lesson("Interfaces", "E-21", imd);
+        DBHelper.save(interfaces);
 
         Mentor mentor1 = new Mentor("Harold");
         DBHelper.save(mentor1);

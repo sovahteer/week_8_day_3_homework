@@ -9,10 +9,12 @@ public class Lesson {
     private int id;
     private String title;
     private String classroomNumber;
+    private Course course;
 
-    public Lesson(String title, String classroomNumber) {
+    public Lesson(String title, String classroomNumber, Course course) {
         this.title = title;
         this.classroomNumber = classroomNumber;
+        this.course = course;
     }
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
@@ -39,5 +41,15 @@ public class Lesson {
 
     public void setClassroomNumber(String classroomNumber) {
         this.classroomNumber = classroomNumber;
+    }
+
+    @ManyToOne
+    @JoinColumn(name="course_id", nullable=false)
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
 }
