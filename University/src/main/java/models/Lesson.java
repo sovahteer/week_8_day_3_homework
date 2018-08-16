@@ -22,6 +22,9 @@ public class Lesson {
         this.course = course;
         this.students = new ArrayList<Student>();
     }
+
+    public Lesson(){}
+
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     @Column(name = "id")

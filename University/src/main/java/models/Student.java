@@ -1,5 +1,8 @@
 package models;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.Fetch;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +25,8 @@ public class Student {
         this.course = course;
         this.lessons = new ArrayList<Lesson>();
     }
+
+    public Student(){}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -58,8 +63,8 @@ public class Student {
         this.enrolmentNumber = enrolmentNumber;
     }
 
-    @ManyToOne
-    @JoinColumn(name="course_id", nullable=false)
+    @ManyToOne( fetch = FetchType.LAZY)
+    @JoinColumn(name="course_id", nullable = false, updatable = false)
     public Course getCourse() {
         return course;
     }
@@ -67,6 +72,15 @@ public class Student {
     public void setCourse(Course course) {
         this.course = course;
     }
+
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @ManyToMany()
+    @JoinTable(
+            name = "class",
+            joinColumns = {@JoinColumn(name = "student_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn (
+                    name = "lesson_id", nullable = false, updatable = false)}
+    )
 
     public List<Lesson> getLessons(){
         return lessons;

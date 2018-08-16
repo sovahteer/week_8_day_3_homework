@@ -13,6 +13,8 @@ public class Mentor {
         this.name = name;
     }
 
+    public Mentor(){}
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
